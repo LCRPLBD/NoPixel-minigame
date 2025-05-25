@@ -1,49 +1,70 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- ... your existing head content ... -->
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="src/script.js" defer></script>
-</head>
 <body>
   <div class="bg">
     <div class="center screen-square">
-      <!-- ... other UI ... -->
+      <!-- 1) Loading / text container -->
+      <div class="center text-container" id="text-container">
+        <img src="assets/spy-icon.png" class="spy-icon">
+        <h3 class="loading-text" id="loading-text">
+          <span class="capital">E</span>STABLISHING CONNECTION
+        </h3>
+      </div>
 
+      <!-- 2) Number-grid container (8 squares get injected here) -->
       <div class="number-container hidden" id="number-container"></div>
 
-      <!-- ... answer-section ... -->
-      <!-- ... try-again ... -->
+      <!-- 3) Answer input section -->
+      <div class="answer-section hidden">
+        <div class="answer-countdown">
+          <div class="answer-progress-bar"></div>
+        </div>
+        <div class="answer-question"></div>
+        <div class="answer-box">
+          <div class="answer-box-description">Answer</div>
+          <div class="answer-input-area">
+            <img src="assets/spy-icon.png" class="answer-input-icon">
+            <input class="answer-input" id="answer-placeholder" placeholder="blue square">
+          </div>
+        </div>
+      </div>
+
+      <!-- 4) Try-again screen -->
+      <div class="try-again hidden">
+        <button id="try-again-button">Try again</button><br><br>
+        <div class="try-again-hint" style="padding-top: 10px;">
+          <span id="submitted-reveal"></span>
+          <span id="answer-was">the answer was:</span>
+          "<span id="answer-reveal"></span>"
+        </div><br>
+        <div class="try-again-hint" id="to_fast">
+          Too fast? Practice by changing the puzzle time!
+        </div>
+      </div>
     </div>
 
-    <!-- speed control (fixed at 10s) -->
+    <!-- 5) Sliders (you can keep these disabled if you want) -->
     <div class='speed-control'>
-      <input type="range"
-             id="speed-control"
-             name="speed-control"
-             min="10" max="10" value="10"
-             disabled>
-      <label class="speed-label" for="speed-control">
-        Puzzle time: <span class="time-display">10</span>
-      </label>
+      <input type="range" id="speed-control" min="10" max="10" value="10" disabled>
+      <label class="speed-label">Puzzle time: <span class="time-display">10</span></label>
     </div>
-
-    <!-- puzzle control (fixed at 8 boxes) -->
     <div class='puzzle-control'>
-      <input type="range"
-             id="puzzle-control"
-             name="puzzle-control"
-             min="8" max="8" value="8"
-             disabled>
-      <label class="puzzle-label" for="puzzle-control">
-        Puzzle Amount: <span class="puzzle-display">8</span>
-      </label>
+      <input type="range" id="puzzle-control" min="8" max="8" value="8" disabled>
+      <label class="puzzle-label">Puzzle Amount: <span class="puzzle-display">8</span></label>
     </div>
 
-    <!-- ... language dropdown, help button, GitHub link, credits ... -->
+    <!-- 6) Help button, GitHub link, language dropdown, credits… -->
+    <button id="help-on" class="question-button">?</button>
+    <a href="https://github.com/LCRPLBD/NoPixel-minigame">
+      <button class="github-link">GitHub</button>
+    </a>
+    <div class="credits">Jesper Hustad (aka. Snacksy)</div>
   </div>
 
-  <!-- help overlay and other scripts ... -->
+  <!-- 7) Help overlay -->
+  <div id="overlay">
+    <div id="text">
+      <!-- your tutorial content… -->
+    </div>
+  </div>
+
+  <!-- 8) Page-view counter scripts, etc. -->
 </body>
-</html>
